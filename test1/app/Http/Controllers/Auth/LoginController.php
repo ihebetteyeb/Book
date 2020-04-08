@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use auth;
 class LoginController extends Controller
 {
     /*
@@ -28,15 +28,26 @@ class LoginController extends Controller
      */
     //protected $redirectTo = '/books';
     //protected $redirectTo = RouteServiceProvider::HOME;
-     protected $redirectTo = RouteServiceProvider::BOOK;
+    // protected $redirectTo = RouteServiceProvider::BOOK;
 
     /**
      * Create a new controller instance.
      *
      * @return void
+
      */
+    protected function redirectTo( ) {
+    if (Auth::check() && Auth::user()->role == 'admin') {
+        return('/admin');
+    }
+    elseif (Auth::check() && Auth::user()->role == 'Club') {
+        return('/Club');
+    }
+    
+}
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
     }
+    
 }

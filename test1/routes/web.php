@@ -20,8 +20,22 @@ Route::get('/login', function () {
 
 Route::get('/services', 'pagesControllers@services');
 Route::get('/about','pagesControllers@about');
+Route::get('/Club','Clubcontroller@vClub');
+Route::post('/Club','Clubcontroller@post');
+Route::get('/admin','admincontroller@showad');
 
 Auth::routes();
+/*
+Route::get('/admin', function(){
+	echo "Hello Admin";
+})->middleware('admin');
+/*
+Route::get('/Club', function(){
+	echo "Hello Club";
+})->middleware('Club');
+*/
+
+
 
 Route::get('/books', 'booksController@test1')->name('books');
 //Route::post('/books', 'booksController@takehimto');

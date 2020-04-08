@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    welcome to your books application!
+                   Event scheduler
                 </div>
 
                 <div class="links">
